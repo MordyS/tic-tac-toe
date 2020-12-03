@@ -1,0 +1,24 @@
+<h1>{{myTurn ? 'Your' : 'Opponents'}} turn!</h1>
+<table [class.disable]="!myTurn">
+    <tbody>
+        <tr>
+            <td [class]="squares[0].status" (click)="handleClick(0)">{{squares[0].value}}</td>
+            <td [class]="squares[1].status" (click)="handleClick(1)">{{squares[1].value}}</td>
+            <td [class]="squares[2].status" (click)="handleClick(2)">{{squares[2].value}}</td>
+        </tr>
+        <tr>
+            <td [class]="squares[3].status" (click)="handleClick(3)">{{squares[3].value}}</td>
+            <td [class]="squares[4].status" (click)="handleClick(4)">{{squares[4].value}}</td>
+            <td [class]="squares[5].status" (click)="handleClick(5)">{{squares[5].value}}</td>
+        </tr>
+        <tr>
+            <td [class]="squares[6].status" (click)="handleClick(6)">{{squares[6].value}}</td>
+            <td [class]="squares[7].status" (click)="handleClick(7)">{{squares[7].value}}</td>
+            <td [class]="squares[8].status" (click)="handleClick(8)">{{squares[8].value}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div [class]="'msg ' + endGame" *ngIf="msg">
+    {{msg}}
+</div>
