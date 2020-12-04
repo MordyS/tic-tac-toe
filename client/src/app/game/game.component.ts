@@ -41,7 +41,7 @@ export class GameComponent implements OnInit {
   }
 
   handleClick(i) {
-    if (!this.myTurn || this.squares[i].value || this.endGame) return
+    if (!this.myTurn || this.squares[i].value || this.msg) return
     this.squares[i].value = this.symbol
     this.logic.clicked(i, this.symbol)
     this.myTurn = !this.myTurn
