@@ -29,15 +29,25 @@ export class GameComponent implements OnInit {
       }
       this.msg = message
     })
-    this.logic.getSymbol().then((symbol: string) => {
+
+    this.logic.getSymbol().subscribe((symbol: string) => {
       this.symbol = symbol
-      this.myTurn = symbol === 'X'
     })
+
     this.logic.madeMove().subscribe((move: any) => {
       this.squares[move.index].value = move.symbol
       this.myTurn = !this.myTurn
       this.checkWinner()
     })
+
+    this.logic.myTurn().subscribe((bool: boolean) => {
+      this.myTurn = bool
+    })
+  }
+
+  newGame() {
+    this.squares.forEach(s => s.value = s.status = '')
+    this.logic.newGame()
   }
 
   handleClick(i) {
@@ -60,7 +70,7 @@ export class GameComponent implements OnInit {
   }
 
   checkCombination([a, b, c]) {
-    if (this.squares[a].value == this.squares[b].value &&  this.squares[b].value == this.squares[c].value)
+    if (this.squares[a].value == this.squares[b].value && this.squares[b].value == this.squares[c].value)
       return this.squares[a].value
     else
       return ''

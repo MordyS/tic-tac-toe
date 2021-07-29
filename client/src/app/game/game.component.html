@@ -1,4 +1,6 @@
-<h1>{{myTurn ? 'Your' : 'Opponents'}} turn!</h1>
+<h1>&nbsp;
+    <span *ngIf="!msg">{{myTurn ? 'Your' : 'Opponents'}} turn!</span>
+</h1>
 <table [class.disable]="!myTurn">
     <tbody>
         <tr>
@@ -18,6 +20,8 @@
         </tr>
     </tbody>
 </table>
+
+<div class="new-game" (click)="newGame()">New Game</div>
 
 <div [class]="'msg ' + endGame" *ngIf="msg">
     {{msg}}

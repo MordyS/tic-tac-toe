@@ -12,16 +12,22 @@ export class LogicService {
   startGame() {
     this.socket.emit("start");
   }
+  newGame() {
+    this.socket.emit("newGame");
+  }
   getMessage() {
     return this.socket.fromEvent("message")
   }
   getSymbol() {
-    return this.socket.fromOneTimeEvent("symbol")
+    return this.socket.fromEvent("symbol")
   }
   clicked(index, symbol) {
-    this.socket.emit("clicked", {index, symbol})
+    this.socket.emit("clicked", { index, symbol })
   }
   madeMove() {
     return this.socket.fromEvent("madeMove")
+  }
+  myTurn() {
+    return this.socket.fromEvent("myTurn")
   }
 }

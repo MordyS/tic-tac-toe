@@ -51,6 +51,20 @@ table tr td.lost {
     background: #f53527;
 }
 
+.new-game {
+    background: #9a4af8;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 1.5rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: larger;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
 .msg {
     z-index: 9999;
     width: 200px;
