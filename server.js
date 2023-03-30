@@ -6,6 +6,7 @@ const port = process.env.PORT || 80
 
 app.use(express.static(path.join(__dirname, 'client/dist/client')))
 
+
 const server = app.listen(port, () => console.log('server is listening on port ' + server.address().port))
 const io = socket(server);
 
